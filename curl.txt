@@ -1,0 +1,72 @@
+curl --location --request POST 'localhost:5000/agregar_lider' \
+--header 'x-access-tokens: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoxLCJ1c2VyX2lkIjoxLCJleHAiOjE2MTU3NjkzNDl9.agJcKWHkpzkROvee1PMKFX8udLJkchCPGlvj8bU7XBE' \
+--data-binary '/home/jl/Downloads/2021.jpg' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "nombre":"jose",
+    "apellido":"alvarado",
+    "direccion":"Calle 145 #103b-55",
+    "ciudad":"bogota",
+    "celular":"90909090",
+    "foto":"something",
+    "contrasenia": "some",
+    "tipo_documento":"cc",
+    "documento":"123123123"
+}'
+
+curl --location --request POST 'localhost:5000/departamento/agregar' --header 'Content-Type: application/json' \ 
+--header 'x-access-tokens: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoyLCJleHAiOjE2MTU3NDU2MDJ9.oMMirH8II6Afw86JjDoa6DxTLJeKN0eUaz3O9lUWnb0' \
+--data-raw '{
+	"nombre":"Bogota"
+}'
+
+curl --location --request POST 'localhost:5000/municipio/agregar' --header 'Content-Type: application/json' \
+--header 'x-access-tokens: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoyLCJleHAiOjE2MTU3NDU2MDJ9.oMMirH8II6Afw86JjDoa6DxTLJeKN0eUaz3O9lUWnb0' \
+--data-raw '{
+	"departament_id":1,
+	"nombre":"Bogota"
+}'
+
+
+curl --location --request POST 'localhost:5000/mesa_votacion/agregar' --header 'Content-Type: application/json' \
+--header 'x-access-tokens: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoyLCJleHAiOjE2MTU3NDU2MDJ9.oMMirH8II6Afw86JjDoa6DxTLJeKN0eUaz3O9lUWnb0' \
+--data-raw '{
+	"municipio_id":1,
+	"nombre":"av siempre viva",
+	"direccion":"Cra 58C #128b-2"
+}'
+
+
+curl --location --request POST 'localhost:5000/votante/agregar' \
+--header 'x-access-tokens: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoyLCJleHAiOjE2MTU3NDMxMTJ9.qlO5HiBKI34pP5h7fOZTMZc0i_Ng8yELaivAb9RXjc4' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "nombre":"jose",
+    "apellido":"alvarado",
+    "ciudad":"bogota",
+    "direccion":"Calle 145 #103b-55",
+    "telefono":"90909090",
+    "tipo_documento":"something",
+    "documento":"123123123",
+    "fecha_creacion":"2021-03-02",
+    "municipio_id":1,
+    "mesa_votacion":"2"
+}'
+
+curl --location --request POST 'localhost:5000/votantes/list' \
+--header 'x-access-tokens: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoyLCJ1c2VyX2lkIjozLCJleHAiOjE2MTU3NjgyMTZ9.elr3szeAowbGMTWLfSM2mHEatnyrDAbRXmuPzf197ww'
+
+
+curl --location --request POST 'localhost:5000/votantes/mesa_votacion_info' \
+--header 'x-access-tokens: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoyLCJ1c2VyX2lkIjoyLCJleHAiOjE2MTU3Njk1NDh9.j7OP7dmbG0WrUGNSR_wa-XVMr0RfwD5Z8xyu5YCqRI0'
+
+curl --location --request POST 'localhost:5000/votantes/lider_info' \
+--header 'x-access-tokens: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoyLCJ1c2VyX2lkIjoyLCJleHAiOjE2MTU3Njk1NDh9.j7OP7dmbG0WrUGNSR_wa-XVMr0RfwD5Z8xyu5YCqRI0'
+
+curl --location --request POST 'localhost:5000/votantes/municipio_info' \
+--header 'x-access-tokens: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoyLCJ1c2VyX2lkIjoyLCJleHAiOjE2MTU3Njk1NDh9.j7OP7dmbG0WrUGNSR_wa-XVMr0RfwD5Z8xyu5YCqRI0'
+
+curl --location --request POST 'localhost:5000/login' --header 'Content-Type: application/json' \ 
+--data-raw '{"documento":"123123123", "contraseña":"some"}'
+
+
